@@ -15,14 +15,17 @@ A continuación, explicó los pasos seguidos para desarrollar este ejercicio:
 •	Implementar código
 
 Analizar el ejercicio actual
+
 Entendiendo que el propósito para este ejercicio se centra en proponer una solución que refleje mi manera de enfocar este problema, he tratado de entender la lógico del juego como se ha definido en este ejercicio.
 Entre los diferentes problemas que he encontrado, veo clases muy acopladas con muchas responsabilidades. También echo en falta la facilidad de una simple configuración del juego. Al ser una aplicación orientada a objetos, echo en falta el tablero para jugar, el dado, las preguntas, etc…
 Asimismo, el código tiene fallos en el código y aplicar una lógica que a mi entender impide escalar esta aplicación. 
 
 Definir el juego de trivia a implementar
+
 El juego constará de un tablero compuesto de un camino con cajas, donde cada caja puede tener categorías configurables. Asimismo, algunas cajas pueden ser cajas que penalicen al jugador que cae en ellas. Cada Jugador tendrá la oportunidad de moverse a través del tablero, pero para poder moverse debe de contestar siempre una pregunta del tipo de categoría que posea la caja donde esta el jugador. El jugador que gane es aquel que supere con el movimiento del dado la caja final del tablero de trivia.
 
 Definir BDD para la aplicación
+
 Los BDD test que deberían ser utilizados como aceptance criteria de la aplicación:
 Given a player movement 
 When movement is on PENALTY_BOX
@@ -47,14 +50,15 @@ A continuación defino dos funcionalidades que no encuentro en el código actual
      
 
 Refactorizar juego de trivia adaptado al juego definido
+
 Teniendo en cuenta el tiempo sugerido para realizar esta propuesta (2 horas aprox) decidí enfocar el juego con el template pattern para permitirme controlar la ejecución del juego. Asimismo, he creado los siguientes objetos para poder implementar el juego definido arriba:
-Dice  dado para el juego, puede ser configurable en el fichero de propiedades de la aplicación
-Player  jugador. Se han utilizado los tres jugadores actuales, en un futuro se podría mejorar para permitir n numero de jugadores.
-Question  pregunta a realizar a los jugadores. Las preguntas pueden ser cargadas a través de un csv, de momento solo he cargado 13 preguntas de las categorías que se encontraban en la aplicación
-Rule  defino las reglas del trivia que nos servirán para controlar cuantas casillas se debe penalizar a un jugador que cae en un PENALTY_BOX
-StatePlayer  reflejerá el estado del jugador actual y nos ayudará a definir cuando un jugador gana
-TriviaGame clase que implemanta el template para cualquier juego. Orquesta el funcionamiento del juego
-TriviaGameTemplate  template definido para este tipo de juego
-TriviaBoard  representa el tablero donde se jugara al trivia
-TriviaState  para futuras implementaciones por si se quiere mantener el estado actual del juego para pausarlo
-TriviaStateHolder  para futuras implementaciones por si se quiere mantener el estado actual del juego para pausarlo 
+Dice:  dado para el juego, puede ser configurable en el fichero de propiedades de la aplicación
+Player: jugador. Se han utilizado los tres jugadores actuales, en un futuro se podría mejorar para permitir n numero de jugadores.
+Question: pregunta a realizar a los jugadores. Las preguntas pueden ser cargadas a través de un csv, de momento solo he cargado 13 preguntas de las categorías que se encontraban en la aplicación
+Rule: defino las reglas del trivia que nos servirán para controlar cuantas casillas se debe penalizar a un jugador que cae en un PENALTY_BOX
+StatePlayer: reflejerá el estado del jugador actual y nos ayudará a definir cuando un jugador gana
+TriviaGame: clase que implemanta el template para cualquier juego. Orquesta el funcionamiento del juego
+TriviaGameTemplate: template definido para este tipo de juego
+TriviaBoard: representa el tablero donde se jugara al trivia
+TriviaState: para futuras implementaciones por si se quiere mantener el estado actual del juego para pausarlo
+TriviaStateHolder: para futuras implementaciones por si se quiere mantener el estado actual del juego para pausarlo 
